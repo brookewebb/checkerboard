@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="flex align-items-center justify-content-center column gap">
+        <div class="hs">
+            <h1 style="color: {{color1}}; background-color: {{color2}}">A Checkerboard</h1>
+            <h2 style="color: {{color2}}; background-color: {{color1}}">There are currently {{numH}} rows and {{numV}} columns. The checkerboard is {{color1}} and {{color2}}.</h2>
+        </div>
+        <div class="flex align-items-center justify-content-center gap">
+            <div class="flex">
+                {% for x in range(0, numV) %}
+                <div class="row">
+                    {% for y in range(0, numH) %}
+                        {% if (x + y) % 2 == 0 %}
+                        <div class="col" style="background-color: {{color1}}"></div>
+                        {% else %}
+                        <div class="col" style="background-color: {{color2}}"></div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
